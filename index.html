@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TitanStructure | Building the Future</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fa;
+    color:#333;
+}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#0f172a;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+}
+
+.logo{
+    color:#f59e0b;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+}
+
+.nav-links li{
+    margin-left:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#f59e0b;
+}
+
+.menu-btn{
+    display:none;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 32px;
+    background:#f59e0b;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#d97706;
+}
+
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:50px;
+    color:#0f172a;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:10px;
+}
+
+.about-text h3{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.service-card{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:.3s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+}
+
+.service-card h3{
+    margin:15px 0;
+}
+
+.projects{
+    background:#eef2f7;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project-card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.project-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.project-card h3{
+    padding:20px;
+}
+
+.stats{
+    background:#0f172a;
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:50px;
+    color:#f59e0b;
+}
+
+.testimonials-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.testimonial{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.contact{
+    background:#eef2f7;
+}
+
+.contact-form{
+    max-width:700px;
+    margin:auto;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:5px;
+}
+
+.contact-form button{
+    width:100%;
+    border:none;
+    cursor:pointer;
+}
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:40px;
+}
+
+.about{
+    grid-template-columns:1fr;
+}
+
+.nav-links{
+    position:absolute;
+    top:75px;
+    right:-100%;
+    flex-direction:column;
+    background:#0f172a;
+    width:250px;
+    transition:0.4s;
+    padding:20px;
+}
+
+.nav-links.active{
+    right:0;
+}
+
+.nav-links li{
+    margin:15px 0;
+}
+
+.menu-btn{
+    display:block;
+}
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav class="navbar">
+<div class="logo">TitanStructure</div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<div class="menu-btn" id="menuBtn">☰</div>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>Building Excellence, Creating Landmarks</h1>
+<p>TitanStructure delivers world-class construction solutions with quality, innovation, and safety at every stage.</p>
+<a href="#contact" class="btn">Request a Quote</a>
+</div>
+</section>
+
+<section id="about">
+<h2 class="section-title">About TitanStructure</h2>
+
+<div class="about">
+<img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=80">
+
+<div class="about-text">
+<h3>Your Trusted Construction Partner</h3>
+<p>
+TitanStructure is a leading construction company specializing in commercial, residential, industrial, and infrastructure projects. Our mission is to transform ideas into durable and innovative structures that stand the test of time.
+</p>
+<br>
+<p>
+With years of industry expertise, our team combines advanced engineering, modern technology, and exceptional craftsmanship to deliver projects on schedule and within budget.
+</p>
+</div>
+</div>
+</section>
+
+<section id="services">
+<h2 class="section-title">Our Services</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>Commercial Construction</h3>
+<p>Modern office complexes, retail centers, and business facilities.</p>
+</div>
+
+<div class="service-card">
+<h3>Residential Projects</h3>
+<p>Luxury homes, apartments, and housing developments.</p>
+</div>
+
+<div class="service-card">
+<h3>Industrial Construction</h3>
+<p>Factories, warehouses, and industrial infrastructure.</p>
+</div>
+
+<div class="service-card">
+<h3>Renovation & Remodeling</h3>
+<p>Transforming existing structures into modern spaces.</p>
+</div>
+
+<div class="service-card">
+<h3>Project Management</h3>
+<p>Professional oversight ensuring quality and efficiency.</p>
+</div>
+
+<div class="service-card">
+<h3>Civil Engineering</h3>
+<p>Roads, bridges, drainage systems, and public infrastructure.</p>
+</div>
+
+</div>
+</section>
+
+<section class="projects" id="projects">
+<h2 class="section-title">Featured Projects</h2>
+
+<div class="project-grid">
+
+<div class="project-card">
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80">
+<h3>Corporate Office Tower</h3>
+</div>
+
+<div class="project-card">
+<img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1000&q=80">
+<h3>Luxury Residential Estate</h3>
+</div>
+
+<div class="project-card">
+<img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80">
+<h3>Industrial Manufacturing Plant</h3>
+</div>
+
+</div>
+</section>
+
+<section class="stats">
+<div class="stats-grid">
+
+<div class="stat">
+<h2 class="counter" data-target="500">0</h2>
+<p>Projects Completed</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="150">0</h2>
+<p>Expert Engineers</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="25">0</h2>
+<p>Years Experience</p>
+</div>
+
+<div class="stat">
+<h2 class="counter" data-target="100">0</h2>
+<p>Client Satisfaction %</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2 class="section-title">Client Testimonials</h2>
+
+<div class="testimonials-grid">
+
+<div class="testimonial">
+<p>
+"Outstanding workmanship and professionalism. TitanStructure delivered our office project ahead of schedule."
+</p>
+<br>
+<strong>Michael Johnson</strong>
+</div>
+
+<div class="testimonial">
+<p>
+"Their team exceeded expectations with quality construction and excellent communication."
+</p>
+<br>
+<strong>Sarah Williams</strong>
+</div>
+
+<div class="testimonial">
+<p>
+"We trusted TitanStructure with a large industrial project and they delivered exceptional results."
+</p>
+<br>
+<strong>David Brown</strong>
+</div>
+
+<div class="testimonial">
+<p>
+"Professional, reliable, and highly skilled. We highly recommend TitanStructure."
+</p>
+<br>
+<strong>James Carter</strong>
+</div>
+
+</div>
+</section>
+
+<section class="contact" id="contact">
+<h2 class="section-title">Contact Us</h2>
+
+<form class="contact-form">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="tel" placeholder="Phone Number">
+<textarea rows="6" placeholder="Your Project Details"></textarea>
+
+<button class="btn">Send Message</button>
+</form>
+</section>
+
+<footer>
+<p>© 2021 TitanStructure Construction Company. All Rights Reserved.</p>
+</footer>
+
+<script>
+
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+navLinks.classList.toggle('active');
+});
+
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+const updateCounter = () => {
+const target = +counter.getAttribute('data-target');
+const current = +counter.innerText;
+
+const increment = target / 100;
+
+if(current < target){
+counter.innerText = Math.ceil(current + increment);
+setTimeout(updateCounter, 20);
+}else{
+counter.innerText = target;
+}
+};
+
+updateCounter();
+});
+
+</script>
+
+</body>
+</html>
